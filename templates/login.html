@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="max-width: 450px; margin: 2rem auto;">
+ <br/> 
+<h1>🔐 Login</h1>
+ <br/>
+
+    <form method="post">
+        </br>
+        <label>Username</label>
+        <br/>
+
+        <input type="text" name="username" required>
+
+        <label>Password</label>
+
+        <input type="password" name="password" required>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Sign In</button>
+    </form>
+    <p style="margin-top: 1rem; text-align: center;">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    <p style="text-align: center;"><a href="{{ url_for('forgot_password') }}">Forgot password?</a></p>
+</div>
+{% endblock %}

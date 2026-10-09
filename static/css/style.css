@@ -1,0 +1,33 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+body{background:#f0f4f8;color:#1e293b;line-height:1.5}
+nav{background:#1e40af;color:#fff;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+.nav-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;width:100%}
+nav a{color:#fff;text-decoration:none;margin:0 .5rem}
+.logo{display:inline-flex;align-items:center;gap:.7rem;font-weight:700;font-size:1.1rem}
+.brand-logo{width:36px;height:36px;border-radius:10px;object-fit:cover;display:block}
+.nav-links{display:flex;align-items:center;list-style:none;margin:0;padding:0;gap:.5rem;flex-wrap:wrap}
+.container{max-width:1000px;margin:2rem auto;padding:0 1rem}
+.card{background:#fff;padding:1.5rem;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:1rem 0}
+.mid{max-width:450px;margin:2rem auto}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.warn{background:#fef3c7;color:#92400e}
+.ok{background:#dcfce7;color:#166534}
+.flash{padding:.8rem 1rem;margin:1rem 0;border-radius:6px}
+.danger{background:#fee2e2;color:#991b1b}
+.warning{background:#fef3c7;color:#92400e}
+.success{background:#dcfce7;color:#166534}
+.btn{display:inline-block;padding:.6rem 1rem;border-radius:6px;text-decoration:none;border:none;cursor:pointer;margin:.2rem}
+.prim{background:#2563eb;color:#fff}
+.sm{padding:.3rem .6rem;font-size:.9rem}
+.danger{background:#dc2626;color:#fff}
+.inline{display:inline}
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+td,th{padding:.75rem;text-align:left;border-bottom:1px solid #e2e8f0}
+.pri.high{background:#fee2e2;color:#991b1b;padding:.2rem .5rem;border-radius:20px;font-size:.8rem}
+.pri.medium{background:#fef3c7;color:#92400e;padding:.2rem .5rem;border-radius:20px;font-size:.8rem}
+.pri.low{background:#dcfce7;color:#166534;padding:.2rem .5rem;border-radius:20px;font-size:.8rem}
+.stat.completed{background:#dcfce7;color:#166534;padding:.2rem .5rem;border-radius:20px;font-size:.8rem}
+.stat.pending{background:#fef3c7;color:#92400e;padding:.2rem .5rem;border-radius:20px;font-size:.8rem}
+.stat.in_progress{background:#dbeafe;color:#1e40af;padding:.2rem .5rem;border-radius:20px;font-size:.8rem}
+input,textarea,select{width:100%;padding:.6rem;margin:.3rem 0 .8rem;border:1px solid #cbd5e1;border-radius:6px}
+h1,h2{margin-bottom:1rem}

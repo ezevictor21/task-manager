@@ -1,0 +1,31 @@
+{%extends"base.html"%}{%block content%}
+<h1>Dashboard</h1>
+<div class="stats">
+    <br/>
+  <div class="card"><h3>{{stats.total}}</h3><p>Total</p></div>
+  <br/>
+  
+  <br/>
+  <div class="card warn"><h3>{{stats.pending}}</h3><p>Pending</p></div>
+    <br/>
+  <div class="card ok"><h3>{{stats.done}}</h3><p>Completed</p></div>
+</div>
+<a href="/add" class="btn">+ New Task</a>
+{%if tasks%}<table><tr><th>Title</th><th>Due</th><th>Priority</th><th>Status</th><th>Actions</th></tr>
+{%for t in tasks%}<tr>
+  <td><strong>{{t.title}}</strong><br><small>{{t.description[:30]}}</small></td>
+  <td>{{t.due_date or '—'}}</td>
+  <td><span class="pri {{t.priority.lower()}}">{{t.priority}}</span></td>
+  <td><span class="stat {{t.status.lower()}}">{{t.status}}</span></td>
+  <td>
+    <form action="/toggle/{{t.id}}" method="post" class="inline">
+      <button class="btn sm">{{'✓' if t.status=='Completed' else 'Done'}}</button>
+    </form>
+    <a href="/edit/{{t.id}}" class="btn sm">Edit</a>
+    <form action="/del/{{t.id}}" method="post" class="inline" onsubmit="return confirm('Delete?')">
+      <button class="btn sm danger">×</button>
+    </form>
+  </td>
+</tr>{%endfor%}</table>
+{%else%}<p>No tasks yet. <a href="/add">Create your first task →</a></p>{%endif%}
+{%endblock%}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h1>🔍 Filter & Search Tasks</h1>
+    <form method="get" style="display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: flex-end; margin-bottom: 1.5rem;">
+        <div>
+            <label>Status</label>
+            <select name="status" onchange="this.form.submit()">
+                <option value="all" {% if selected_status=='all' %}selected{% endif %}>All</option>
+                <option value="Pending" {% if selected_status=='Pending' %}selected{% endif %}>Pending</option>
+                <option value="In Progress" {% if selected_status=='In Progress' %}selected{% endif %}>In Progress</option>
+                <option value="Completed" {% if selected_status=='Completed' %}selected{% endif %}>Completed</option>
+            </select>
+        </div>
+        <div>
+            <label>Priority</label>
+            <select name="priority" onchange="this.form.submit()">
+                <option value="all" {% if selected_priority=='all' %}selected{% endif %}>All</option>
+                <option value="Low" {% if selected_priority=='Low' %}selected{% endif %}>Low</option>
+                <option value="Medium" {% if selected_priority=='Medium' %}selected{% endif %}>Medium</option>
+                <option value="High" {% if selected_priority=='High' %}selected{% endif %}>High</option>
+            </select>
+        </div>
+        <div>
+            <label>Search</label>
+            <input type="text" name="search" value="{{ search }}" placeholder="Search by title...">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="{{ url_for('dashboard') }}" class="btn">Reset</a>
+    </form>
+
+    <h3>Results: {{ tasks|length }} task(s)</h3>
+    {% if tasks %}
+    <table>
+        <thead><tr><th>Title</th><th>Due Date</th><th>Priority</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.due_date or '—' }}</td>
+                <td><span class="badge {{ task.priority.lower() }}">{{ task.priority }}</span></td>
+                <td><span class="badge {{ task.status.lower().replace(' ', '_') }}">{{ task.status }}</span></td>
+                <td><a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn btn-sm btn-primary">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No tasks match your filters.</p>
+    {% endif %}
+</div>
+{% endblock %}
